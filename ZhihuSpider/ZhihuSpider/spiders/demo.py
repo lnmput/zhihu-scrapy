@@ -29,7 +29,7 @@ def get_xsrf():
 
     print(response.text)
 
-    matches = re.match('.*name="_xsrf" value="(.*?)"', response.text)
+    matches = re.match('.*name="_xsrf" value="(.*?)"', response.text, re.DOTALL)
     if matches:
         return matches.group(1)
     else:
